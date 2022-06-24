@@ -73,7 +73,7 @@ abstract contract SlicerPurchasable is ISlicerPurchasable {
         uint256,
         bytes memory,
         bytes memory
-    ) public view virtual override returns (bool) {
+    ) public view virtual override returns (bool isAllowed) {
         // Add all requirements related to product purchase here
         // Return true if account is allowed to buy product
         return true;
@@ -91,7 +91,7 @@ abstract contract SlicerPurchasable is ISlicerPurchasable {
         uint256 quantity,
         bytes memory slicerCustomData,
         bytes memory buyerCustomData
-    ) external payable virtual override onlyOnPurchaseFrom(slicerId) {
+    ) public payable virtual override onlyOnPurchaseFrom(slicerId) {
         // Check whether the account is allowed to buy a product.
         if (
             !isPurchaseAllowed(

@@ -2,7 +2,7 @@ import { ethers } from "hardhat"
 import addresses from "../addresses.json"
 
 // Set these before proceeding
-const env = "testnet"
+const env = "testnet" // "testnet" || "mainnet"
 const slicerId = 1 // The ID of the slicer that will be able to interact with this contract
 
 async function main() {

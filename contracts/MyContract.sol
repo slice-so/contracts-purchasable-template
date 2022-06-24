@@ -4,10 +4,9 @@ pragma solidity ^0.8.0;
 import "./extensions/Purchasable/SlicerPurchasable.sol";
 
 contract MyContract is SlicerPurchasable {
-    constructor(
-        address productsModuleAddress_,
-        uint256 slicerId_
-    ) SlicerPurchasable(productsModuleAddress_, slicerId_) {}
+    constructor(address productsModuleAddress_, uint256 slicerId_)
+        SlicerPurchasable(productsModuleAddress_, slicerId_)
+    {}
 
     /// ============ Functions ============
 
@@ -40,7 +39,7 @@ contract MyContract is SlicerPurchasable {
         uint256 quantity,
         bytes memory slicerCustomData,
         bytes memory buyerCustomData
-    ) external payable override onlyOnPurchaseFrom(slicerId) {
+    ) public payable override onlyOnPurchaseFrom(slicerId) {
         // Check whether the account is allowed to buy a product.
         if (
             !isPurchaseAllowed(
