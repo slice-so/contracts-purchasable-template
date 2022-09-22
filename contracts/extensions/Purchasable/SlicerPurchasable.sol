@@ -24,7 +24,7 @@ abstract contract SlicerPurchasable is ISlicerPurchasable {
     /// ============ Storage ============
 
     /// ProductsModule contract address
-    address internal _productsModuleAddress;
+    address internal immutable _productsModuleAddress;
     /// Id of the slicer able to call the functions with the `OnlyOnPurchaseFrom` function
     uint256 internal immutable _slicerId;
 
